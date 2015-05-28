@@ -1,0 +1,25 @@
+ Usage: programming_test.pl -f file.fna -q file.qual -o output_prefix 
+
+-f|fna - fna file - required
+-q|qual - qual file for the fna file  - required
+-o|output_prefix - output prefix name  - required
+
+This script takes an fna and quality file and blasts it against a known adapter and primer seq (embedded in the program).  This program only looks at blast matches of greater than 90% identity.
+
+The program generates the following output:
+
+1) Total number of reads in the dataset.
+2) Total number of reads greater than 100 bp.
+3) Total number of reads with average quality scores greater than 20.
+4) Total number of reads with primer sequences.
+5) Total number of reads with adaptor sequences.
+6) Total number of reads with both primer and adaptor sequences.
+
+to the standard out which can be piped to a file if desired.
+
+In addition, your program needs to generate the following files:
+
+1) Blast output file in m8 format.
+2) Fasta and quality files containing reads and quality scores greater than 100bp, average read quality scores greater than 20, primers and adaptors trimmed.
+3) Tab de-limited text file containing the read identifiers along with the starting and end positions of the primer or adaptor sequences. Please use this information to generate numbers for 4), 5) and 6).
+
